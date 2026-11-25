@@ -1,8 +1,10 @@
 import { MainNav } from "@/components/main-nav";
 import { MobileNav } from "@/components/mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Skeleton } from "@/components/ui/skeleton";
 import { UserMenu } from "@/components/user-menu";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export function SiteHeader() {
   return (
@@ -16,9 +18,17 @@ export function SiteHeader() {
         </div>
         <div className="hidden flex-row items-center justify-end gap-2 justify-self-end md:flex">
           <ThemeToggle />
-          <UserMenu />
+          <Suspense fallback={<Skeleton className="size-8 rounded-full" />}>
+            <UserMenu />
+          </Suspense>
         </div>
-        <MobileNav />
+        <MobileNav
+          userMenu={
+            <Suspense fallback={<Skeleton className="size-8 rounded-full" />}>
+              <UserMenu />
+            </Suspense>
+          }
+        />
       </div>
     </header>
   );
