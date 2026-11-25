@@ -3,7 +3,6 @@
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import * as Sheet from "@/components/ui/sheet";
-import { UserMenu } from "@/components/user-menu";
 import { links } from "@/lib/nav";
 import { cn } from "cn";
 import { MenuIcon } from "lucide-react";
@@ -11,9 +10,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-export function MobileNav() {
+export function MobileNav({ userMenu }: { userMenu: React.ReactNode }) {
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const [open, setOpen] = useState(false);
+
+  if (prevPathname !== pathname) {
+    setOpen(false);
+    setPrevPathname(pathname);
+  }
 
   return (
     <div className="justify-self-end md:hidden">
@@ -35,7 +40,6 @@ export function MobileNav() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setOpen(false)}
                   className={cn(
                     "text-sm font-medium",
                     isActive
@@ -51,7 +55,7 @@ export function MobileNav() {
           </nav>
           <Sheet.SheetFooter className="flex flex-row items-center justify-between">
             <ThemeToggle />
-            <UserMenu onNavigate={() => setOpen(false)} />
+            {userMenu}
           </Sheet.SheetFooter>
         </Sheet.SheetContent>
       </Sheet.Sheet>
