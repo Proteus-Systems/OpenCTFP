@@ -39,6 +39,7 @@ export function LogOutItem({ displayName }: { displayName?: string }) {
       variant="destructive"
       disabled={pending}
       onSelect={logOut}
+      className="cursor-pointer"
     >
       <LogOut />
       {pending ? "Logging out..." : "Log out"}
