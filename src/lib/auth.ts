@@ -15,5 +15,8 @@ export const auth = betterAuth({
     enabled: true,
     requireEmailVerification: false,
   },
+  advanced: {
+    cookiePrefix: "openctfp",
+  },
   plugins: [nextCookies()],
 });
