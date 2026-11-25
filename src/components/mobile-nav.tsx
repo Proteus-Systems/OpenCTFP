@@ -29,7 +29,14 @@ export function MobileNav({ userMenu }: { userMenu: React.ReactNode }) {
             <span className="sr-only">Open menu</span>
           </Button>
         </Sheet.SheetTrigger>
-        <Sheet.SheetContent side="right">
+        <Sheet.SheetContent
+          side="right"
+          onClick={(e) => {
+            if ((e.target as HTMLElement).closest("a")) {
+              setOpen(false);
+            }
+          }}
+        >
           <Sheet.SheetHeader>
             <Sheet.SheetTitle>OpenCTFP</Sheet.SheetTitle>
           </Sheet.SheetHeader>
