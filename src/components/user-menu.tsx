@@ -35,8 +35,8 @@ export async function UserMenu() {
       </Dropdown.DropdownMenuTrigger>
       <Dropdown.DropdownMenuContent align="end" className="min-w-56">
         <Dropdown.DropdownMenuLabel>
-          <p className="text-base text-foreground">{user.name}</p>
-          <p className="font-mono text-xs text-muted-foreground">
+          <p className="text-base font-medium text-foreground">{user.name}</p>
+          <p className="truncate font-mono text-xs text-muted-foreground">
             {user.email}
           </p>
         </Dropdown.DropdownMenuLabel>
