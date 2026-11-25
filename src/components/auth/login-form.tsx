@@ -52,7 +52,7 @@ export function LoginForm() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-10">
         <Card.CardHeader>
           <Card.CardTitle>
-            <h1 className="text-5xl font-bold">Log in</h1>
+            <h1 className="text-3xl font-bold">Log in</h1>
           </Card.CardTitle>
         </Card.CardHeader>
         <Card.CardContent className="flex flex-col gap-4">
@@ -100,10 +100,14 @@ export function LoginForm() {
               {error}
             </p>
           )}
-          <Button type="submit" disabled={pending} className="cursor-pointer">
+          <Button
+            type="submit"
+            disabled={pending}
+            className="w-full cursor-pointer"
+          >
             {pending ? "Logging in..." : "Log in"}
           </Button>
-          <span className="text-sm text-muted-foreground">
+          <span className="text-center text-sm text-muted-foreground">
             Don&apos;t have an account?{" "}
             <Link
               className="transition duration-300 hover:text-foreground hover:underline"
@@ -112,9 +116,9 @@ export function LoginForm() {
               Sign up
             </Link>
           </span>
-          <span className="text-sm text-muted-foreground">
+          <span className="text-center text-sm text-muted-foreground">
             Forgotten your password? Ask your event organiser for help resetting
-            it
+            it.
           </span>
         </Card.CardFooter>
       </form>

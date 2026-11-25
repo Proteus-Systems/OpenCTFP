@@ -62,7 +62,7 @@ export function SignUpForm() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-10">
         <Card.CardHeader>
           <Card.CardTitle>
-            <h1 className="text-5xl font-bold">Sign up</h1>
+            <h1 className="text-3xl font-bold">Sign up</h1>
           </Card.CardTitle>
         </Card.CardHeader>
         <Card.CardContent className="flex flex-col gap-4">
@@ -153,7 +153,11 @@ export function SignUpForm() {
               {error}
             </p>
           )}
-          <Button type="submit" disabled={pending} className="cursor-pointer">
+          <Button
+            type="submit"
+            disabled={pending}
+            className="w-full cursor-pointer"
+          >
             {pending ? "Creating account..." : "Sign up"}
           </Button>
           <span className="text-sm text-muted-foreground">
