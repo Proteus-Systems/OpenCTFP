@@ -57,6 +57,7 @@ export async function createOwner(input: {
         email,
         emailVerified: false,
         role: "owner",
+        banned: false,
         createdAt: now,
         updatedAt: now,
         accounts: {
