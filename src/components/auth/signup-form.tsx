@@ -1,4 +1,6 @@
 "use client";
+import { PageHeader } from "@/components/page-header";
+import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";
 import * as Card from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,8 +10,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
-
-import { PasswordInput } from "../password-input";
 
 export function SignUpForm() {
   const router = useRouter();
@@ -60,7 +60,7 @@ export function SignUpForm() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-10">
         <Card.CardHeader>
           <Card.CardTitle>
-            <h1 className="text-3xl font-bold">Sign up</h1>
+            <PageHeader title="Sign up" description="Create your new account" />
           </Card.CardTitle>
         </Card.CardHeader>
         <Card.CardContent className="flex flex-col gap-4">

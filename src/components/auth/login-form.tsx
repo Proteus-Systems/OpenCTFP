@@ -1,4 +1,5 @@
 "use client";
+import { PageHeader } from "@/components/page-header";
 import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";
 import * as Card from "@/components/ui/card";
@@ -51,7 +52,10 @@ export function LoginForm() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-10">
         <Card.CardHeader>
           <Card.CardTitle>
-            <h1 className="text-3xl font-bold">Log in</h1>
+            <PageHeader
+              title="Log in"
+              description="Sign back in to your OpenCTFP account"
+            />
           </Card.CardTitle>
         </Card.CardHeader>
         <Card.CardContent className="flex flex-col gap-4">
