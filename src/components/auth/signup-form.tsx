@@ -1,4 +1,5 @@
 "use client";
+
 import { PageHeader } from "@/components/page-header";
 import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";
@@ -96,6 +97,7 @@ export function SignUpForm() {
               placeholder="********"
               autoComplete="new-password"
               onChange={(e) => setPassword(e.target.value)}
+              minLength={8}
               required
             />
           </div>
