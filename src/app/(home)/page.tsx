@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <PageContainer>
-      <PageHeader title="Home" />
+      <PageHeader title="Home" className="mb-8" />
       <Button asChild>
         <Link href="/events">Events</Link>
       </Button>

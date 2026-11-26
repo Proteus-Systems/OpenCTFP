@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function AdminPage() {
   return (
     <PageContainer>
-      <PageHeader title="Admin" />
+      <PageHeader title="Admin" className="mb-8" />
     </PageContainer>
   );
 }

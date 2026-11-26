@@ -1,10 +1,11 @@
 "use client";
+import { PageHeader } from "@/components/page-header";
+import { PasswordInput } from "@/components/password-input";
 import { Button } from "@/components/ui/button";
 import * as Card from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { signIn } from "@/lib/auth-client";
-import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -19,7 +20,6 @@ export function LoginForm() {
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
-  const [visibility, setVisibility] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -52,7 +52,10 @@ export function LoginForm() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-10">
         <Card.CardHeader>
           <Card.CardTitle>
-            <h1 className="text-3xl font-bold">Log in</h1>
+            <PageHeader
+              title="Log in"
+              description="Sign back in to your OpenCTFP account"
+            />
           </Card.CardTitle>
         </Card.CardHeader>
         <Card.CardContent className="flex flex-col gap-4">
@@ -70,28 +73,14 @@ export function LoginForm() {
           </div>
           <div className="grid gap-2">
             <Label htmlFor="password">Password</Label>
-            <div className="relative">
-              <Input
-                type={visibility ? "text" : "password"}
-                name="password"
-                id="password"
-                placeholder="********"
-                autoComplete="current-password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="pr-10"
-              />
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                aria-label={visibility ? "Hide password" : "Show password"}
-                onClick={() => setVisibility((prev) => !prev)}
-                className="absolute inset-y-0 right-1 my-auto cursor-pointer"
-              >
-                {visibility ? <EyeOff /> : <Eye />}
-              </Button>
-            </div>
+            <PasswordInput
+              name="password"
+              id="password"
+              placeholder="********"
+              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
           </div>
         </Card.CardContent>
         <Card.CardFooter className="flex flex-col items-center justify-center gap-3">

@@ -22,8 +22,12 @@ model User {
   updatedAt     DateTime  @db.Timestamptz(3)
   sessions      Session[]
   accounts      Account[]
+  role String?
+	banned Boolean?
+	banReason String?
+	banExpires DateTime? @db.Timestamptz(3)
 
-  @@map("user")
+	@@map("user")
 }
 
 model Session {
@@ -36,6 +40,7 @@ model Session {
   userAgent String?
   createdAt DateTime @db.Timestamptz(3)
   updatedAt DateTime @db.Timestamptz(3)
+  impersonatedBy String?
 
   @@index([userId], map: "session_userId_idx")
   @@map("session")

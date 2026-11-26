@@ -2,9 +2,11 @@ import "server-only";
 
 import { config } from "@/lib/config";
 import { db } from "@/lib/db";
+import { ac, organiser, owner, player } from "@/lib/permissions";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { nextCookies } from "better-auth/next-js";
+import { admin } from "better-auth/plugins";
 
 export const auth = betterAuth({
   appName: "OpenCTFP",
@@ -18,5 +20,13 @@ export const auth = betterAuth({
   advanced: {
     cookiePrefix: "openctfp",
   },
-  plugins: [nextCookies()],
+  plugins: [
+    admin({
+      ac,
+      roles: { owner, organiser, player },
+      defaultRole: "player",
+      adminRoles: ["owner"],
+    }),
+    nextCookies(),
+  ],
 });

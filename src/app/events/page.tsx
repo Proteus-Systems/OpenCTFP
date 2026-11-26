@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   return (
     <PageContainer>
-      <PageHeader title="Events" />
+      <PageHeader title="Events" className="mb-8" />
       <EmptyState
         icon={Flag}
         title="No events found"
