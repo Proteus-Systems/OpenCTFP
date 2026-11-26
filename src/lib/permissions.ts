@@ -9,6 +9,8 @@ export const owner = ac.newRole({
   ...adminAc.statements,
 });
 
+// TODO: Permissions added in #13
+
 export const organiser = ac.newRole({});
 
 export const player = ac.newRole({});
